@@ -1,0 +1,124 @@
+{
+  "forensic_extraction": {
+    "version": "1.0.0",
+    "extraction_settings": {
+      "max_file_size": 104857600,
+      "hash_algorithms": ["md5", "sha1", "sha256"],
+      "preserve_metadata": true,
+      "create_backup": false,
+      "compression_enabled": false
+    },
+    "registry_artifacts": {
+      "enabled": true,
+      "max_keys_per_hive": 10000,
+      "include_deleted_keys": false,
+      "extract_binary_data": false
+    },
+    "filesystem_artifacts": {
+      "enabled": true,
+      "max_files_per_directory": 10000,
+      "include_hidden_files": true,
+      "include_system_files": false,
+      "timeline_analysis": true
+    },
+    "memory_artifacts": {
+      "enabled": true,
+      "max_processes": 1000,
+      "extract_memory_dumps": false,
+      "include_network_connections": true
+    },
+    "network_artifacts": {
+      "enabled": true,
+      "max_connections": 10000,
+      "extract_browser_data": true,
+      "include_dns_cache": true,
+      "include_arp_cache": true
+    },
+    "user_activity_artifacts": {
+      "enabled": true,
+      "max_recent_files": 1000,
+      "extract_run_history": true,
+      "extract_user_profiles": true
+    },
+    "evtx_artifacts": {
+      "enabled": true,
+      "max_evtx_files": 100,
+      "extract_all_events": false,
+      "focus_on_security_events": true,
+      "detect_anomalies": true,
+      "generate_security_report": true,
+      "important_event_ids": [4624, 4625, 4634, 4720, 4728, 4688, 5152, 5153, 4103, 4104, 4105]
+    },
+    "logging": {
+      "level": "INFO",
+      "file_rotation": true,
+      "max_log_size": 10485760,
+      "backup_count": 5
+    },
+    "reporting": {
+      "format": "html",
+      "include_timeline": true,
+      "include_statistics": true,
+      "include_hash_verification": true
+    },
+    "security": {
+      "verify_hashes": true,
+      "chain_of_custody": true,
+      "audit_trail": true
+    }
+  },
+  "paths": {
+    "output_directory": "./forensic_output",
+    "logs_directory": "./logs",
+    "temp_directory": "./temp",
+    "reports_directory": "./reports"
+  },
+  "browser_profiles": {
+    "chrome": {
+      "enabled": true,
+      "profile_paths": [
+        "~/AppData/Local/Google/Chrome/User Data/Default",
+        "~/AppData/Local/Google/Chrome/User Data/Profile 1"
+      ]
+    },
+    "firefox": {
+      "enabled": true,
+      "profile_paths": [
+        "~/AppData/Roaming/Mozilla/Firefox/Profiles"
+      ]
+    },
+    "edge": {
+      "enabled": true,
+      "profile_paths": [
+        "~/AppData/Local/Microsoft/Edge/User Data/Default"
+      ]
+    }
+  },
+  "forensic_locations": {
+    "system_files": [
+      "C:\\Windows\\System32",
+      "C:\\Windows\\SysWOW64",
+      "C:\\Windows\\System32\\drivers"
+    ],
+    "user_profiles": [
+      "~/AppData/Local",
+      "~/AppData/Roaming",
+      "~/Documents",
+      "~/Desktop",
+      "~/Downloads"
+    ],
+    "temp_locations": [
+      "~/AppData/Local/Temp",
+      "C:\\Windows\\Temp"
+    ],
+    "recent_files": [
+      "~/AppData/Roaming/Microsoft/Windows/Recent",
+      "~/AppData/Local/Microsoft/Windows/History"
+    ],
+    "evtx_locations": [
+      "C:\\Windows\\System32\\winevt\\Logs",
+      "C:\\Windows\\System32\\config",
+      "C:\\Windows\\System32\\winevt\\Logs\\Archive"
+    ]
+  }
+}
